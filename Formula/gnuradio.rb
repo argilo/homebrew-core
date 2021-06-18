@@ -6,7 +6,7 @@ class Gnuradio < Formula
   url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.9.2.0.tar.gz"
   sha256 "d7271022559bfb486a9462ed5e7d1ffb52a010a197f5dfdef27f70a931907dce"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/gnuradio/gnuradio.git"
 
   livecheck do
@@ -39,6 +39,7 @@ class Gnuradio < Formula
   depends_on "python@3.9"
   depends_on "qt@5"
   depends_on "qwt"
+  depends_on "soapysdr"
   depends_on "uhd"
   depends_on "volk"
   depends_on "zeromq"
@@ -116,8 +117,8 @@ class Gnuradio < Formula
 
     enabled = %w[GNURADIO_RUNTIME GR_ANALOG GR_AUDIO GR_BLOCKS GRC
                  GR_CHANNELS GR_DIGITAL GR_DTV GR_FEC GR_FFT GR_FILTER
-                 GR_MODTOOL GR_NETWORK GR_QTGUI GR_TRELLIS GR_UHD GR_UTILS GR_VOCODER
-                 GR_WAVELET GR_ZEROMQ PYTHON VOLK]
+                 GR_MODTOOL GR_NETWORK GR_QTGUI GR_SOAPY GR_TRELLIS GR_UHD
+                 GR_UTILS GR_VOCODER GR_WAVELET GR_ZEROMQ PYTHON VOLK]
     enabled.each do |c|
       args << "-DENABLE_#{c}=ON"
     end
